@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-editable-demo-block",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "lib/index",
   "description": "Editable demo and code plugin for vuepress",
   "files": [
@@ -39,5 +39,9 @@
     "documentation"
   ],
   "author": "Clfeng",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:clfeng/vuepress-editable-demo-block.git"
+  }
 }
