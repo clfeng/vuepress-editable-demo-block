@@ -1,0 +1,30 @@
+{
+  "name": "vuepress-editable-demo-block",
+  "version": "0.0.1",
+  "main": "lib/index",
+  "description": "Editable demo and code plugin for vuepress",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.8",
+    "codemirror": "^5.62.0",
+    "markdown-it-container": "^3.0.0",
+    "vue-codemirror-lite": "^1.0.4",
+    "vuepress": "^1.8.2"
+  },
+  "keywords": [
+    "vue",
+    "code",
+    "demo",
+    "vuepress",
+    "editable-demo-code",
+    "documentation"
+],
+  "author": "Clfeng",
+  "license": "MIT"
+}
