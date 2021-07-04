@@ -1,3 +1,6 @@
 node_modules
 docs/
 commitlint.config.js
+examples
+.husky
+.vscode

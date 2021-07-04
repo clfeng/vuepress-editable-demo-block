@@ -13,11 +13,8 @@
   "dependencies": {
     "clipboard": "^2.0.8",
     "codemirror": "^5.62.0",
-    "core-js": "2",
-    "element-ui": "^2.15.3",
     "markdown-it-container": "^3.0.0",
-    "vue-codemirror-lite": "^1.0.4",
-    "vuepress": "^1.8.2"
+    "vue-codemirror-lite": "^1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",

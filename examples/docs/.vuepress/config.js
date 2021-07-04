@@ -3,7 +3,7 @@ module.exports = {
     '/widgets/button',
   ],
   plugins: [
-    require('../../lib/index'),
+    require('../../../lib/index'),
   ],
   themeConfig: {
     nav: [
