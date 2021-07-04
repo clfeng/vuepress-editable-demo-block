@@ -1,0 +1,48 @@
+.editable-demo-block {
+  .CodeMirror {
+      height: auto;
+
+      .cm-s-monokai {
+        color: #f8f8f2;
+        padding-left: 20px;
+        border-radius: 6px;;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      
+      .cm-error {
+        background-color: transparent;
+        color: #f92672;
+      }
+
+      span {
+        &.cm-tag {
+          color: #e2777a;
+        }
+
+        &.cm-attribute {
+          color: #e2777a;
+        }
+
+        &.cm-string {
+          color: #7ec699;
+        }
+
+        &.cm-keyword {
+          color: #cc99cd;
+        }
+
+        &.cm-property {
+            color: #f08d49;
+        }
+
+        &.cm-qualifier {
+          color: #cc99cd;
+        }
+
+        &.cm-atom {
+          color: #ccc;
+        }
+      }
+  }
+}

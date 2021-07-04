@@ -102,10 +102,11 @@
 }
 </style>
 <script>
-import "codemirror/theme/monokai.css";
-import "codemirror/mode/vue/vue";
+import './custome-code-mirror.styl';
+import 'codemirror/theme/monokai.css';
+import 'codemirror/mode/vue/vue';
 
-import { codemirror as CodeMirror } from "vue-codemirror-lite";
+import { codemirror as CodeMirror } from 'vue-codemirror-lite';
 import Clipboard from 'clipboard';
 import Vue from 'vue';
 
@@ -233,7 +234,7 @@ export default {
               return ({
           `
         ).replace(
-          /\n*\}\s*$/,
+          /\n*\};*\s*$/,
           `
               });
             };
@@ -251,7 +252,7 @@ export default {
         };
         isShowTip && DEMO_BLOCK_CFG.runSuccessTip.call(this);
       } catch (error) {
-          console.error(e);
+          console.error(error);
           DEMO_BLOCK_CFG.runFailTip.call(this);
       }
     }
