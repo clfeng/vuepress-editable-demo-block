@@ -107,22 +107,36 @@ import "codemirror/mode/vue/vue";
 
 import { codemirror as CodeMirror } from "vue-codemirror-lite";
 import Clipboard from 'clipboard';
+import Vue from 'vue';
 
 const HTML_REG = /<template>([\s\S]+)<\/template>/;
 const CSS_REG = /<style>([\s\S]+)<\/style>/;
 const JS_REG = /<script>([\s\S]+)<\/script>/;
 
-const CODE_MIRROR_OPTIONS = {
-  mode: 'vue',
-  indentUnit: 4,
-  smartIndent: true,
-  tabSize: 4,
-  readOnly: false,
-  showCursorWhenSelecting: true,
-  lineNumbers: false,
-  theme: 'monokai',
-  scrollbarStyle: 'null',
-}
+const DEMO_BLOCK_CFG = Object.assign({
+  runSuccessTip: () => {
+    console.log('run success');
+  },
+  runFailTip: () => {
+    console.error('解析错误！');
+  },
+  copySuccessTip: () => {
+    console.log('copy success');
+  },
+  hideText: '隐藏代码',
+  showText: '显示代码',
+  mirrorOptions: {
+    mode: 'vue',
+    indentUnit: 4,
+    smartIndent: true,
+    tabSize: 4,
+    readOnly: false,
+    showCursorWhenSelecting: true,
+    lineNumbers: false,
+    theme: 'monokai',
+    scrollbarStyle: 'null',
+  }
+}, Vue.prototype.$editableDemoBlockCfg || {})
 
 export default {
   name: "EditableDemoBlock",
@@ -131,12 +145,6 @@ export default {
     htmlStr: {
       type: String,
       default: '',
-    },
-    options: {
-      type: Object,
-      default () {
-        return {};
-      }
     },
   },
 
@@ -149,10 +157,6 @@ export default {
       hovering: false,
       isExpanded: false,
       codeHeight: '0px',
-      demoText: {
-        hideText: '隐藏代码',
-        showText: '显示代码'
-      },
       code: '',
       dynamicComponent: null,
     };
@@ -160,13 +164,10 @@ export default {
 
   computed: {
     controlText () {
-      return this.isExpanded ? this.demoText.hideText : this.demoText.showText;
+      return this.isExpanded ? DEMO_BLOCK_CFG.hideText : DEMO_BLOCK_CFG.showText;
     },
     codeOptions () {
-      return {
-        ...CODE_MIRROR_OPTIONS,
-        ...this.options
-      };
+      return DEMO_BLOCK_CFG.mirrorOptions;
     },
   },
 
@@ -198,7 +199,7 @@ export default {
     enableCopy () {
       let clipboard = new Clipboard(this.$refs.copyBtn);
       clipboard.on('success', (e) => {
-        console.log('copy-success');
+        DEMO_BLOCK_CFG.copySuccessTip();
       });
     },
     renderCode (isShowTip) {
@@ -211,12 +212,11 @@ export default {
 
       try {
         let decodeHtmlStr = this.code;
-        let htmlCode = decodeHtmlStr.match(HTML_REG)[0];
-        htmlCode = htmlCode.trim().replace(/^<template>/, '').replace(/<\/template>$/, '');
+        let htmlCode = decodeHtmlStr.match(HTML_REG);
+        htmlCode = htmlCode ? htmlCode[1] : '';
 
         let cssCode = decodeHtmlStr.match(CSS_REG);
-        cssCode = cssCode ? cssCode[0] : '';
-        cssCode = cssCode.trim().replace(/<style>/).replace(/<\/style>/, '');
+        cssCode = cssCode ? cssCode[1] : '';
 
         if (cssCode) {
           this.styleEl = document.createElement('style');
@@ -224,7 +224,8 @@ export default {
           document.head.appendChild(this.styleEl);
         }
 
-      let jsCode = decodeHtmlStr.match(JS_REG)[1];
+      let jsCode = decodeHtmlStr.match(JS_REG);
+      jsCode = jsCode ? jsCode[1]: `export default {}`;
       let jsCodeScript = jsCode.replace(
           /export\s+default\s*?\{\n*/,
           `
@@ -248,10 +249,10 @@ export default {
           template: htmlCode,
           ...vueAttrs,
         };
-        isShowTip && console.log('run success')
+        isShowTip && DEMO_BLOCK_CFG.runSuccessTip.call(this);
       } catch (error) {
           console.error(e);
-          console.error('解析错误！');
+          DEMO_BLOCK_CFG.runFailTip.call(this);
       }
     }
   },
