@@ -6,6 +6,12 @@
   "files": [
     "lib"
   ],
+  "scripts": {
+    "release:patch": "standard-version --release-as patch && git push --follow-tags origin main && npm publish",
+    "release:minor": "standard-version --release-as minor && git push --follow-tags origin main && npm publish",
+    "release:major": "standard-version --release-as major && git push --follow-tags origin main && npm publish",
+
+  },
   "dependencies": {
     "clipboard": "^2.0.8",
     "codemirror": "^5.62.0",
