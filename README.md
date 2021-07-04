@@ -52,9 +52,9 @@ export default ({
 ### Start
 Write the following code in the Markdown file:
 
-```md
-::: demo 
 ```
+::: demo 
+\``` <= delete start backslash
 <template>
   <div class="examples-button">
     <p>{{ explain }}</p>
@@ -70,7 +70,7 @@ export default {
   }
 }
 </script>
-```
+\``` <= delete start backslash
 :::
 
 ```
