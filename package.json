@@ -6,10 +6,6 @@
   "files": [
     "lib"
   ],
-  "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
-  },
   "dependencies": {
     "clipboard": "^2.0.8",
     "codemirror": "^5.62.0",
