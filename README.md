@@ -1,6 +1,15 @@
 # vuepress-plugin-editable-demo-block
 The plugin is used to help you add vue examples when writing a document. 
 Using this plugin, your users can easily modify your examples.
+With the editable functions your user can understand your example better.
+
+## Feature
+- display code and examples
+- real-time rendering
+- only support vue
+
+![examples](./examples.gif)
+
 
 ### Install
 ```
@@ -42,7 +51,8 @@ export default ({
 
 ### Start
 Write the following code in the Markdown file:
-Vue Demo
+
+```md
 ::: demo 
 ```
 <template>
@@ -62,4 +72,10 @@ export default {
 </script>
 ```
 :::
+
+```
+
+### run examples
+`yarn install`
+`cd examples && yarn install && yarn dev`
 
