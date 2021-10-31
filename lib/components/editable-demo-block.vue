@@ -208,7 +208,7 @@ export default {
         return;
       }
       if (this.styleEl) {
-        document.head.removeEventListener(this.styleEl);
+        document.head.removeChild(this.styleEl);
       }
 
       try {

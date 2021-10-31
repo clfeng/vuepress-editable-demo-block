@@ -43,6 +43,9 @@ export default ({
     runFailTip: function () { // // render fail tip function
       this.$message.error('run fail');
     },
+    copySuccessTip: () => {
+      console.log('copy success');
+    },
     hideText: 'hide code', // tip text when code is hide
     showText: 'show code', // tip text when code is show
   }
@@ -74,6 +77,8 @@ export default {
 :::
 
 ```
+
+![demo_code](demo_code.png)
 
 ### run examples
 `yarn install`
