@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/clfeng/vuepress-editable-demo-block/compare/v0.1.1...v0.1.2) (2021-10-31)
+
+
+### Bug Fixes
+
+* fix the bug that the style element is not removed ([7d59dde](https://github.com/clfeng/vuepress-editable-demo-block/commit/7d59ddeb1d1d23603c75a6a91e0891f1dc23b761))
+
 ### 0.1.1 (2021-07-04)
 
 

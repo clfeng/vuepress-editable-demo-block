@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-editable-demo-block",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/index",
   "description": "Editable demo and code plugin for vuepress",
   "files": [
